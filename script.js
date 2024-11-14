@@ -36,21 +36,21 @@ function removeContact() {
     if (contactsDiary.length === 0) {
         alert('Sem contatos cadastrados ainda.')
     } else {
-        let list = ''
+        let list = 'Sua lista de contatos: \n'
 
         for (let i = 0; i < contactsDiary.length; i++) {
-            list += `\n Contato${i + 1}: ${contactsList[0][i]}\n`
+            list += `\nContato${i + 1}: ${contactsList[0][i]}\n`
         }
 
-        list += '\n Deseja remover algum contato?'
+        list += '\nDeseja remover algum contato?'
 
         if (confirm(list) === true) {
             const removingContact = prompt('Qual contato você deseja remover?')
-            for (let j = 0; j < contactsList[0].length; j++) {
+            for (let j = 0; j < contactsDiary.length; j++) {
                 if (removingContact === contactsList[0][j]) {
                     contactsDiary.splice(j, 1)
                     contactsList[0].splice(j, 1)
-                    alert(removingContact + ' foi removido!')
+                    alert(removingContact + ' foi removido da lista.')
                 }
             }
         }
