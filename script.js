@@ -91,9 +91,10 @@ function removeMenu() {
         } while (option !== '2')
     }
 
-function showCredits(dev) {
-    return alert(`O projeto foi desenvolvido por:
-    ${dev}: Desenvolvedor do sistema`)
+function showCredits(dev, menu3) {
+    menu3 = 'O projeto foi desenvolvido por: \n'
+    menu3 += '\n' + dev + 'Desenvolvedor do sistema'
+    return alert(menu3)
 }
 
 
@@ -120,7 +121,7 @@ do {
             removeMenu()
             break
         case '4':
-            showCredits('Thiago Botelho')
+            showCredits()
             break
         case '5':
             alert('Encerrando programa, obrigado por usá-lo ;)')
