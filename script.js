@@ -50,7 +50,7 @@ function removeContact(removedContact) {
 
 function createSecondarymenu(menu2) {
     menu2 = 'Escolha alguma das opções abaixo:\n'
-    menu2 += '\n1- Remover algum contato\n'
+    menu2 += '\n1- Remover algum contato'
     menu2 += '\n2- Voltar'
 
     return prompt(menu2)
@@ -93,7 +93,7 @@ function removeMenu() {
 
 function showCredits(dev, menu3) {
     menu3 = 'O projeto foi desenvolvido por: \n'
-    menu3 += '\n' + dev + 'Desenvolvedor do sistema'
+    menu3 += '\n' + dev + ': Desenvolvedor do projeto'
     return alert(menu3)
 }
 
@@ -121,7 +121,7 @@ do {
             removeMenu()
             break
         case '4':
-            showCredits()
+            showCredits('Thiago Botelho')
             break
         case '5':
             alert('Encerrando programa, obrigado por usá-lo ;)')
