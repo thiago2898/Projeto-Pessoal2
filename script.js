@@ -6,7 +6,6 @@ const contact = {}
 const userName = prompt('Digite seu nome.')
 let option = false
 
-
 function createPrincipalmenu(menu) {
     menu = `Bem-vindo(a) à sua agenda de contatos ${userName}!\n`
     menu += 'O que deseja fazer diante das opções abaixo?\n'
@@ -78,9 +77,12 @@ function removeMenu() {
 
                         for (let j = 0; j < contactsList[0].length; j++) {
                             if (listMenu === contactsList[0][j]) {
-                                let removed = contactsList[0].splice(j, 1)
-                                removeContact(removed)
-                                alert(removed + ' foi removido da lista.')
+                                const removeName = contactsList[0].indexOf(listMenu)
+                                const removedName = contactsList[0].splice(removeName, 1)
+                                removeContact(removedName)
+                                alert(removedName + ' foi removido da lista.')
+                            } else {
+                                alert('Nome do contato inválido')
                             }
                         }
                     }
