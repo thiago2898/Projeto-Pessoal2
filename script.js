@@ -40,6 +40,8 @@ function login(contactName, contactEmail) {
 
     if (toConfirm === true) {
         addContact()
+    } else {
+        alert(`O contato ${contact.contactName} foi descartado.`)
     }
 }
 
@@ -65,24 +67,19 @@ function removeMenu() {
                         alert('Sem contatos cadastrados no momento.')
                     } else {
                         let list = 'Lista de contatos adicionados: \n'
-                        list += `=======================================`
                         for (let i = 0; i < contactsList[0].length; i++) {
                             list += `\nContato${i + 1}: ${contactsList[0][i]}\n`
                             list += `Email: ${contactsList[1][i]}\n`
                         }
-                        list += `=======================================`
                         list += '\nQual contato deseja remover?'
 
                         const listMenu = prompt(list)
-
+                        
                         for (let j = 0; j < contactsList[0].length; j++) {
                             if (listMenu === contactsList[0][j]) {
-                                const removeName = contactsList[0].indexOf(listMenu)
-                                const removedName = contactsList[0].splice(removeName, 1)
+                                const removedName = contactsList[0].splice(j, 1)
                                 removeContact(removedName)
                                 alert(removedName + ' foi removido da lista.')
-                            } else {
-                                alert('Nome do contato inválido')
                             }
                         }
                     }
