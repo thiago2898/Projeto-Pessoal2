@@ -68,7 +68,8 @@ function removeMenu() {
                 } else {
                     let list = 'Lista de contatos adicionados: \n'
                     for (let i = 0; i < contactsList[0].length; i++) {
-                        list += `\nContato${i + 1}: ${contactsList[0][i]}\n`
+                        list += `\nContato${i + 1}: \n`
+                        list += `Nome: ${contactsList[0][i]}\n`
                         list += `Email: ${contactsList[1][i]}\n`
                     }
                     list += '\nQual contato deseja remover?'
@@ -80,7 +81,7 @@ function removeMenu() {
                     if (listMenu === contactsList[0][remove]) {
                         const removedContact = contactsList[0].splice(remove, 1)
                         removeContact(removedContact)
-                        alert(removedContact + ' foi deletado da sua lista de contatos!')
+                        alert(removedContact + ' foi removido da sua lista de contatos!')
                     } else {
                         alert('Nome do contato inválido, tente novamente.')
                     }
