@@ -58,40 +58,42 @@ function createSecondarymenu(menu2) {
 }
 
 function removeMenu() {
-        do {
-            option = createSecondarymenu()
+    do {
+        option = createSecondarymenu()
 
-            switch (option) {
-                case '1':
-                    if (contactsList[0].length === 0) {
-                        alert('Sem contatos cadastrados no momento.')
-                    } else {
-                        let list = 'Lista de contatos adicionados: \n'
-                        for (let i = 0; i < contactsList[0].length; i++) {
-                            list += `\nContato${i + 1}: ${contactsList[0][i]}\n`
-                            list += `Email: ${contactsList[1][i]}\n`
-                        }
-                        list += '\nQual contato deseja remover?'
-
-                        const listMenu = prompt(list)
-                        
-                        for (let j = 0; j < contactsList[0].length; j++) {
-                            if (listMenu === contactsList[0][j]) {
-                                const removedName = contactsList[0].splice(j, 1)
-                                removeContact(removedName)
-                                alert(removedName + ' foi removido da lista.')
-                            }
-                        }
+        switch (option) {
+            case '1':
+                if (contactsList[0].length === 0) {
+                    alert('Sem contatos cadastrados no momento.')
+                } else {
+                    let list = 'Lista de contatos adicionados: \n'
+                    for (let i = 0; i < contactsList[0].length; i++) {
+                        list += `\nContato${i + 1}: ${contactsList[0][i]}\n`
+                        list += `Email: ${contactsList[1][i]}\n`
                     }
-                    break
-                case '2':
-                    alert('Voltando...')
-                    break
-                default:
-                    alert('Opção inválida!')
-            }
-        } while (option !== '2')
-    }
+                    list += '\nQual contato deseja remover?'
+
+                    const listMenu = prompt(list)
+
+                    const remove = contactsList[0].indexOf(listMenu)
+
+                    if (listMenu === contactsList[0][remove]) {
+                        const removedContact = contactsList[0].splice(remove, 1)
+                        removeContact(removedContact)
+                        alert(removedContact + ' foi deletado da sua lista de contatos!')
+                    } else {
+                        alert('Nome do contato inválido, tente novamente.')
+                    }
+                    }
+                break
+            case '2':
+                alert('Voltando...')
+                break
+            default:
+                alert('Opção inválida!')
+        }
+    } while (option !== '2')
+}
 
 function showCredits(dev, menu3) {
     menu3 = 'O projeto foi desenvolvido por: \n'
@@ -114,7 +116,7 @@ do {
             } else {
                 let removedList = ''
                 for (let i = 0; i < removedContacts.length; i++) {
-                    removedList += `${i + 1}º ${removedContacts[i]}\n`
+                    removedList += `${i + 1}º Contato removido: ${removedContacts[i]}\n`
                 }
                 alert(removedList)
             }
